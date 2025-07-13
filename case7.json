@@ -1,0 +1,11 @@
+{
+    "model": "models/gemini-embedding-exp-03-07",
+    "content": {
+        "parts": [
+            {
+                "text": "What is the meaning of life?"
+            }
+        ]
+    },
+    "taskType": "SEMANTIC_SIMILARITY"
+}
