@@ -53,7 +53,7 @@
             "role": "user",
             "parts": [
                 {
-                    "text": "maybe rust?"
+                    "text": "maybe rust in new main.rs?"
                 }
             ]
         }
@@ -63,8 +63,7 @@
             "thinkingBudget": 1024
         },
         "temperature": 0,
-        "topP": 1,
-        "topK": 10
+        "topP": 1
     },
     "tools": [
         {
@@ -354,3 +353,5 @@
         }
     ]
 }
+
+
