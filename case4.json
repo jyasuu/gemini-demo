@@ -1,0 +1,32 @@
+{
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "What's the temperature in London?"
+          }
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "functionDeclarations": [
+          {
+            "name": "get_current_temperature",
+            "description": "Gets the current temperature for a given location.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "string",
+                  "description": "The city name, e.g. San Francisco"
+                }
+              },
+              "required": ["location"]
+            }
+          }
+        ]
+      }
+    ]
+  }
