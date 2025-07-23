@@ -1,0 +1,48 @@
+{
+    "system_instruction": {
+        "parts": [
+            {
+                "text": "Action to perform. \nIf you want to respond to user, use Response. \nIf you need to further use tools to get the answer, use Plan.\n\nProduce JSON matching this specification:\n\nPlan = { \"steps\": array<string> }\nResponse = { \"response\": string }\nAct = { \"action\": Response | Plan }\nReturn: Act"
+            }
+        ]
+    },
+    "contents": [
+        {
+            "role": "user",
+            "parts": [
+                {
+                    "text": "For the given objective, come up with a simple step by step plan. This plan should involve individual tasks, that if executed correctly will yield the correct answer. Do not add any superfluous steps. The result of the final step should be the final answer. Make sure that each step has all the information needed - do not skip steps.\n\nYour objective was this:\nIdentify the winner of the most recent Australian Open Men's Singles tournament.\n\nYour original plan was this:\nwhat is the hometown of the current Australia open winner?\n\nYou have currently done the follow steps:\n\n\nUpdate your plan accordingly. If no more steps are needed and you can return to the user, then respond with that. Otherwise, fill out the plan. Only add steps to the plan that still NEED to be done. Do not return previously done steps as part of the plan."
+                }
+            ]
+        }
+    ],
+    "generationConfig": {
+        "thinkingConfig": {
+            "thinkingBudget": 1024
+        },
+        "temperature": 0,
+        "topP": 1,
+        "responseMimeType": "application/json",
+        "responseSchema": {
+            "type": "OBJECT",
+            "properties": {
+                "action":{
+                    "type": "OBJECT",
+                    "properties": {
+                        "steps": {
+                            "type": "ARRAY",
+                            "items": { "type": "STRING" }
+                        },
+                        "resoonse": {
+                            "type": "STRING"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tools": [
+    ]
+}
+
+
