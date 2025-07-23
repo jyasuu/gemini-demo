@@ -1,0 +1,88 @@
+{
+  "contents": [{
+    "parts":[{
+      "text": "Please give a random example following this schema"
+    }]
+  }],
+  "generationConfig": {
+    "response_mime_type": "application/json",
+    "response_json_schema": {
+  "$defs": {
+    "Address": {
+      "properties": {
+        "street": {
+          "title": "Street",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        }
+      },
+      "required": [
+        "street",
+        "city"
+      ],
+      "title": "Address",
+      "type": "object"
+    },
+    "UserRole": {
+      "enum": [
+        "admin",
+        "viewer"
+      ],
+      "title": "UserRole",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "username": {
+      "description": "User's unique name",
+      "title": "Username",
+      "type": "string"
+    },
+    "age": {
+      "anyOf": [
+        {
+          "maximum": 120,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Age"
+    },
+    "roles": {
+      "items": {
+        "$ref": "#/$defs/UserRole"
+      },
+      "minItems": 1,
+      "title": "Roles",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "contact": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Address"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Contact"
+    }
+  },
+  "required": [
+    "username",
+    "age",
+    "roles",
+    "contact"
+  ],
+  "title": "User Schema",
+  "type": "object"
+}
+  }
+}
